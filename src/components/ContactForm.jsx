@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../redux/slices';
+import { addContact } from '../redux/operation';
 import styles from './PhoneBook.module.css';
 import { useState } from 'react';
-import { getAvailableContacts } from '../redux/selector';
+import { selectAvailableContacts } from '../redux/selector';
 
 export const ContactForm = () => {
   const [fields, setFields] = useState({ name: '', number: '' });
   const { name, number } = fields;
-  const contacts = useSelector(getAvailableContacts);
+  const contacts = useSelector(selectAvailableContacts);
   const dispatch = useDispatch();
 
   const handleChange = event => {

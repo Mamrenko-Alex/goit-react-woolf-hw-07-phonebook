@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './PhoneBook.module.css';
 import { setFilter } from '../redux/slices';
-import { getFilter } from '../redux/selector';
+import { selectFilter } from '../redux/selector';
 
 export const SearchFilter = () => {
-  const value = useSelector(getFilter);
+  const value = useSelector(selectFilter);
   const dispatch = useDispatch();
 
   const handleChange = event => {

@@ -4,11 +4,24 @@ import { ContactForm } from './ContactForm';
 import { ContactList } from './ContactList';
 import { SearchFilter } from './SearchFilter';
 import { Notification } from './Notification/Notification';
-import { useSelector } from 'react-redux';
-import { getContacts } from '../redux/selector';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  selectContacts,
+  selectError,
+  selectIsLoading,
+} from '../redux/selector';
+import { useEffect } from 'react';
+import { fetchContacts } from '../redux/operation';
 
 export const App = () => {
-  const contacts = useSelector(getContacts);
+  const dispatch = useDispatch();
+  const error = useSelector(selectError);
+  const isLoading = useSelector(selectIsLoading);
+  const contacts = useSelector(selectContacts);
+
+  useEffect(() => {
+    dispatch(fetchContacts);
+  }, [dispatch]);
 
   return (
     <div className={styles.container}>

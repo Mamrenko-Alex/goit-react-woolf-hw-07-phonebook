@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './PhoneBook.module.css';
-import { deleteContact } from '../redux/slices';
-import { getAvailableContacts } from '../redux/selector';
+import { deleteContact } from '../redux/operation';
+import { selectAvailableContacts } from '../redux/selector';
 
 export const ContactList = () => {
-  const contacts = useSelector(getAvailableContacts);
+  const contacts = useSelector(selectAvailableContacts);
   const dispatch = useDispatch();
 
   const handleDeleteContact = id => {
