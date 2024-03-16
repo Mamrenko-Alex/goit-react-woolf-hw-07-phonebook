@@ -20,13 +20,18 @@
   margin-bottom: 10px;
 }
 
-.button {
+.add_item_button {
   padding: 8px 15px;
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.add_item_button:hover {
+  background-color: #0056b3;
 }
 
 .title {
@@ -55,14 +60,30 @@
 }
 
 .contact_item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
   margin-bottom: 5px;
 }
 
-.contact_item button {
+.delete_item_button {
   margin-left: 10px;
-  background-color: #dc3545;
+  background-color: #e83c4e;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.delete_item_button:hover {
+  background-color: #c21425;
+}
+
+.name_item {
+  font-weight: 600;
+}
+
+.phone_item {
+  font-style: italic;
 }

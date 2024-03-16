@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { nanoid } from 'nanoid';
 import { fetchContacts, addContact, deleteContact } from './operation';
 
 fetchContacts();
@@ -17,7 +16,7 @@ export const filterSlice = createSlice({
 });
 
 const loadingHandler = state => {
-  state.isLoading = !state.isLoading;
+  state.isLoading = true;
 };
 
 const errorHandler = (state, action) => {

@@ -1,4 +1,3 @@
-// import { nanoid } from 'nanoid';
 import styles from './PhoneBook.module.css';
 import { ContactForm } from './ContactForm';
 import { ContactList } from './ContactList';
@@ -20,7 +19,7 @@ export const App = () => {
   const contacts = useSelector(selectContacts);
 
   useEffect(() => {
-    dispatch(fetchContacts);
+    dispatch(fetchContacts());
   }, [dispatch]);
 
   return (
@@ -29,8 +28,14 @@ export const App = () => {
       <ContactForm />
       <h2 className={styles.title}>Contacts</h2>
       <SearchFilter />
+      {isLoading && contacts.length && <Notification>Loading...</Notification>}
+      {error && <div>{error}</div>}
       {!contacts.length ? (
-        <Notification>You don't have any contacts yet</Notification>
+        isLoading ? (
+          <Notification>Loading...</Notification>
+        ) : (
+          <Notification>You don't have any contacts yet</Notification>
+        )
       ) : (
         <ContactList />
       )}

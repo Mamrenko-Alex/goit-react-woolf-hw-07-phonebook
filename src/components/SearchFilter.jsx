@@ -9,7 +9,6 @@ export const SearchFilter = () => {
 
   const handleChange = event => {
     const normalizedValue = event.target.value.toLowerCase();
-
     dispatch(setFilter(normalizedValue));
   };
 
